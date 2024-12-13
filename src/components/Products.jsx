@@ -1,6 +1,6 @@
 import React from "react";
 
-const Products = ({ data }) => {
+const Products = ({ data, isAdmin }) => {
   return (
     <div className="container mx-auto px-4 py-10 bg-gradient-to-r from-blue-50 to-blue-100 pt-24">
       <h2 className="text-3xl font-extrabold text-center mb-8 text-blue-600">
@@ -31,9 +31,21 @@ const Products = ({ data }) => {
                 {product.description}
               </p>
 
-              <button className="w-full py-2 bg-indigo-500 text-white font-semibold rounded-lg hover:bg-indigo-600 transition duration-200">
-                Add to Cart
-              </button>
+              {isAdmin ? (
+                <button
+                  onClick={handleDelete}
+                  className="w-full py-2 bg-red-500 text-white font-semibold rounded-lg hover:bg-red-600 transition duration-200"
+                >
+                  Delete
+                </button>
+              ) : (
+                <button
+                  onClick={handleAddCart}
+                  className="w-full py-2 bg-indigo-500 text-white font-semibold rounded-lg hover:bg-indigo-600 transition duration-200"
+                >
+                  Add to Cart
+                </button>
+              )}
             </div>
           </div>
         ))}

@@ -9,6 +9,8 @@ import Auth from "../pages/auth/Auth";
 import Category from "../pages/category/Category";
 import AllCategories from "../pages/category/AllCategories";
 import OneCategory from "../pages/category/One-category";
+import CreateProduct from "@/pages/admin/create-product/CreateProduct";
+import MenageProduct from "@/pages/admin/menage-product/MenageProduct";
 
 const Router = () => {
   return (
@@ -20,8 +22,13 @@ const Router = () => {
         <Route path="/create-category" element={<Category />} />
         <Route path="/see-category" element={<AllCategories />} />
         <Route path="/see-one-category" element={<OneCategory />} />
-        <Route path="/" element={<Auth />}>
-          <Route path="/admin" element={<Admin />} />
+      </Route>
+      <Route path="/" element={<Auth />}>
+        <Route path="/admin" element={<Admin />}>
+          <Route path="create-product" element={<CreateProduct />} />
+          <Route path="menage-product" element={<MenageProduct />} />
+          <Route path="category" element={<Category />} />
+          <Route path="all-category" element={<AllCategories />} />
         </Route>
       </Route>
     </Routes>

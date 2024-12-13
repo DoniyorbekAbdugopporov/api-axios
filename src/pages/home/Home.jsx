@@ -10,7 +10,7 @@ const Home = () => {
   }, []);
   return (
     <div>
-      <Products data={products} />
+      <Products isAdmin={false} data={products} />
     </div>
   );
 };
